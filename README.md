@@ -1,1 +1,0 @@
-# GuessingPracticalWork10
