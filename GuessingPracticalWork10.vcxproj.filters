@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GuessingPracticalWork10.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="PracticalWork10.cpp">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
