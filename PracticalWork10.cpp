@@ -6,8 +6,6 @@
 
 using namespace std;
 
-void showNumbersHint(vector<int> numberArray);
-
 int main() {
     setlocale(LC_ALL, "RU");
 
@@ -29,6 +27,7 @@ int main() {
 
             int guessedNumbers = 0;
             int attempts = 5;
+            int currentNumberIndex = 0; // Индекс текущего числа для угадывания
 
             system("cls");
 
@@ -51,30 +50,16 @@ int main() {
                     continue;
                 }
 
-                // Проверка поочередно
-                bool isGuessed = false;
-                for (int i = 0; i < 3; ++i) {
-                    if (guess == numbers[i]) {
-                        cout << "\n[ + ] Вы \x1b[95mугадали число\x1b[0m!\n";
-                        guessedNumbers++;
-                        isGuessed = true;
-                        break; // Выход из цикла, если число угадано
-                    }
-                }
-                if (!isGuessed) {
-                    cout << "\n[ - ] Вы \x1b[91mне угадали число\x1b[0m!\n";
-                    attempts--;
-                }
-
-                // Проверка, есть ли введенное число в списке
-                /*if (binary_search(numbers.begin(), numbers.end(), guess)) {
+                // Проверка текущего числа
+                if (guess == numbers[currentNumberIndex]) {
                     cout << "\n[ + ] Вы \x1b[95mугадали число\x1b[0m!\n";
                     guessedNumbers++;
+                    currentNumberIndex++; // Переход к следующему числу
                 }
                 else {
                     cout << "\n[ - ] Вы \x1b[91mне угадали число\x1b[0m!\n";
                     attempts--;
-                }*/
+                }
             }
 
             if (guessedNumbers == 3) {
@@ -100,12 +85,4 @@ int main() {
     }
 
     return 0;
-}
-
-void showNumbersHint(vector<int> numbers) {
-    cout << "\x1b[94mЗагаданные числа: ";
-    for (int i = 0; i < 3; ++i) {
-        cout << numbers[i] << " ";
-    }
-    cout << "\x1b[0m\n\n";
 }
